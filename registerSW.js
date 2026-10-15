@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/relationship-map/sw.js', { scope: '/relationship-map/' })})}
