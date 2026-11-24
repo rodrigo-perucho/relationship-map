@@ -1,0 +1,1 @@
+import{A as e,k as t}from"./database-CDVUCn_I.js";function n(n,r,i){let a=t(n,i?.in);return isNaN(r)?e(i?.in||n,NaN):(r&&a.setDate(a.getDate()+r),a)}export{n as t};
