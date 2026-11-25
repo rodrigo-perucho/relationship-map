@@ -1,6 +1,6 @@
-# Tribis
+# Tribis Test
 
-Published build of Tribis, a personal relationship map:
+Published test build of Tribis, a personal relationship map (the clean app is at https://tribis-app.github.io/):
 https://rodrigo-perucho.github.io/relationship-map/
 
 This repository only holds the finished website files. It is not open source.
