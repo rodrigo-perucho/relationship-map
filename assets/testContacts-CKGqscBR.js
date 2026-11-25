@@ -1,0 +1,13 @@
+import{t as e}from"./es-poaaaQIB.js";import{G as t,n}from"./database-Bq5QJExS.js";var r=e=>Array.from(new TextEncoder().encode(e),e=>e<128&&e!==61&&e>32?String.fromCharCode(e):`=${e.toString(16).toUpperCase().padStart(2,`0`)}`).join(``);function i(e,n){if(typeof document>`u`)return null;let r=document.createElement(`canvas`);r.width=480,r.height=360;let i=r.getContext(`2d`);return i?(i.fillStyle=t[n].pastel,i.fillRect(0,0,480,360),i.fillStyle=t[n].deep,i.font=`800 180px Nunito, sans-serif`,i.textAlign=`center`,i.textBaseline=`middle`,i.fillText(e,240,190),r.toDataURL(`image/jpeg`,.8).split(`,`)[1]??null):null}var a=(e,t)=>(t+e).match(/.{1,74}/g).join(`\r
+ `);async function o(o=40){let s=Object.keys(t),c=[],l=[];for(let t=0;t<o;t++){let n=e.person.firstName(),o=e.datatype.boolean(.85)?`${e.person.lastName()} ${e.person.lastName()}`:``;l.push({given:n,family:o});let u=e.date.birthdate({min:18,max:80,mode:`age`}),d=String(u.getMonth()+1).padStart(2,`0`),f=String(u.getDate()).padStart(2,`0`),p=e.datatype.boolean(.6),m=e.datatype.boolean(.4)?i(n.charAt(0).toUpperCase(),e.helpers.arrayElement(s)):null,h=`TEL;CELL:+34 6${e.string.numeric(8)}`,g=t%3;if(g===0)c.push([`BEGIN:VCARD`,`VERSION:2.1`,`N;CHARSET=UTF-8;ENCODING=QUOTED-PRINTABLE:${r(o)};${r(n)};;;`,`FN;CHARSET=UTF-8;ENCODING=QUOTED-PRINTABLE:${r([n,o].filter(Boolean).join(` `))}`,h,...p?[`BDAY:${u.getFullYear()}-${d}-${f}`]:[],...m?[a(m,`PHOTO;ENCODING=BASE64;JPEG:`),``]:[],`END:VCARD`].join(`\r
+`));else if(g===1){let t=e.datatype.boolean(.5);c.push([`BEGIN:VCARD`,`VERSION:3.0`,`N:${o};${n};;;`,`FN:${[n,o].filter(Boolean).join(` `)}`,`item1.EMAIL;type=INTERNET:${e.internet.email()}`,...p?[t?`BDAY;X-APPLE-OMIT-YEAR=1604:1604-${d}-${f}`:`BDAY:${u.getFullYear()}-${d}-${f}`]:[],...m?[a(m,`PHOTO;ENCODING=b;TYPE=JPEG:`)]:[],`END:VCARD`].join(`\r
+`))}else c.push([`BEGIN:VCARD`,`VERSION:4.0`,`FN:${[n,o].filter(Boolean).join(` `)}`,`N:${o};${n};;;`,...p?[e.datatype.boolean(.5)?`BDAY:--${d}${f}`:`BDAY:${u.getFullYear()}${d}${f}`]:[],...m?[a(m,`PHOTO:data:image/jpeg;base64,`)]:[],`END:VCARD`].join(`\r
+`))}for(let e of l.slice(0,2))c.push([`BEGIN:VCARD`,`VERSION:3.0`,`N:${e.family};${e.given};;;`,`BDAY:--0101`,`END:VCARD`].join(`\r
+`));c.push(`BEGIN:VCARD\r
+VERSION:3.0\r
+ORG:Taller Mecánico\r
+TEL:900000000\r
+END:VCARD`);let u=await n.people.filter(e=>!e.isMe).limit(4).toArray();for(let t of u){let n=i(t.name.charAt(0).toUpperCase(),e.helpers.arrayElement(s));c.push([`BEGIN:VCARD`,`VERSION:3.0`,`N:${t.surname??``};${t.name};;;`,`BDAY:1988-03-14`,...n?[a(n,`PHOTO;ENCODING=b;TYPE=JPEG:`)]:[],`END:VCARD`].join(`\r
+`))}return c.join(`\r
+`)+`\r
+`}export{o as makeTestVcf};
